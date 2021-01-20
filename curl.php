@@ -191,7 +191,7 @@
       echo "\r                       \r"; 
       $res=$timr-time(); 
       if($res < 1){break;} 
-      echo date('H:i:s',$res)." kanten\n"; 
+      echo date('H:i:s',$res)." kanten"; 
       sleep(1); 
       endwhile;
   }
