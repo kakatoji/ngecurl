@@ -98,6 +98,24 @@
             return array($header, $body);
         }
     }
+  function timer($tmr){ 
+     $timr=time()+$tmr; 
+      while(true): 
+      echo "\r                       \r"; 
+      $res=$timr-time(); 
+      if($res < 1){break;} 
+      echo date('H:i:s',$res)." kanten\n"; 
+      sleep(1); 
+      endwhile;
+  }
+  function save($data,$data_post){
+   //$data="data.json";
+    if(!file_get_contents($data)){
+      file_put_contents($data,"[]");}
+    $json=json_decode(file_get_contents($data),1);
+    $arr=array_merge($json,$data_post);
+    file_put_contents($data,json_encode($arr,JSON_PRETTY_PRINT));
+  } 
   function array_to_cookies($source){
         if(!is_array($source)){
             return "NOT ARRAY!";
