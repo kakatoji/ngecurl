@@ -31,6 +31,11 @@ function curl($url, $post = 0, $httpheader = 0, $proxy = 0){ // url, postdata, h
             return array($header, $body);
         }
     }
+  function ptt(){
+$cs=shell_exec('tput cols');
+if(preg_match('/sh/i',$cs)){
+  $_a=shell_exec("pkg install ncurses-utils");
+  echo $_a;}}
   function pad(){
     $s=shell_exec('tput cols');
     $r=mb_convert_encoding('&#x2591;', 'UTF-8', 'HTML-ENTITIES');
