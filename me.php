@@ -1,3 +1,5 @@
+<?php
+
 function curl($url, $post = 0, $httpheader = 0, $proxy = 0){ // url, postdata, http headers, proxy, uagent
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -36,6 +38,10 @@ function curl($url, $post = 0, $httpheader = 0, $proxy = 0){ // url, postdata, h
             return str_replace(array('\n', '\\', '{"', '"}', '":"', '","'), array('', '', '', '', '=', '; '), json_encode($source));
         }
     }
+  function name(){
+    $url="https://randomuser.me/api/?format=json";
+    $data=json_decode(file_get_contents($url),1);
+    return $data;}
   function timer($tmr){ 
      $timr=time()+$tmr; 
       while(true): 
