@@ -16,7 +16,7 @@ function curl($url,$method="GET", $body=NULL, $headers=[]) {
   // Get the method and set if required
   $method = strtoupper($method);
   if( $method != "GET" ) {
-    curl_setopt($sh, CURLOPOT_CUSTOMREQUEST, $method);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
   }
 
   // If method is a POST, set the appropriate headers
