@@ -1,0 +1,29 @@
+<?php
+
+function timer($text,$timer){
+date_default_timezone_set('UTC');
+$tim = time()+$timer;
+$blue="\033[34m";$cyn="\033[36m";
+$blet="\033[92m";$putih="\033[37m";
+$bpur="\033[35m";$m="\033[31m";
+$bhj="\033[33m";$nyr="\033[8m";
+$rm="\033[0"."m";
+$wrn=[$putih,$m];
+$i=0;
+$randw=[$blet,$bhj,$cyn,$blet,$bhj,$cyn];$x=1;
+while(true):
+echo "\r                                                        \r";
+$wsl=$wrn[$i];
+$tm = $tim-time();
+$date=date("H:i:s",$tm);
+if($tm<1){ break; }
+$str=str_repeat("•",$x);$stran=$randw[$x-1];
+$as="strtime ";$cls="]";
+echo $putih.$text."$putih [$wsl$date$putih$cls $as$stran$str";
+if($x==6){$x=1;}else{$x++;} sleep(1);
+$i++;
+if($i >= count ($wrn)){$i=0;}
+endwhile;
+ }
+  
+  timer('please wait',40);
