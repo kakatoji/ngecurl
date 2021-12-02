@@ -1,6 +1,6 @@
 <?php
 
-function curl($url,$method="GET", $body=NULL, $headers=[],$proxy=NULL) {
+function curl($url,$method="GET", $body=NULL, $headers=[]) {
   // the default return object
   $return = [];
   
@@ -26,11 +26,6 @@ function curl($url,$method="GET", $body=NULL, $headers=[],$proxy=NULL) {
       curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
       $headers[] = 'Content-Length: ' . strlen($body);
     }
-  }
-  if($proxy){
-      curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, true);
-      curl_setopt($ch, CURLOPT_PROXY, $proxy);
-      // curl_setopt($ch, CURLOPT_PROXYTYPE, CURLPROXY_SOCKS5);
   }
   // Exec the curl command
   $resp = curl_exec($ch);
