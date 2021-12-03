@@ -3,7 +3,7 @@
 function curl($url,$method="GET", $body=NULL, $headers=[]) {
   // the default return object
   $return = [];
-  
+  while(1):
   // Exchange the auth code for an access token
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $url);
@@ -34,8 +34,8 @@ function curl($url,$method="GET", $body=NULL, $headers=[]) {
   $httpcode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
   $return["status"] = $httpcode;
   if( $httpcode === 0 ) {
-    throw new Exception("Connection to API failed with response code: {$httpcode}");
-    return $return;
+    echo "\033[0;33myour connection is bad\033[0m\n";
+    continue;
   }
 
   // Get the respone and set the return payload
@@ -44,6 +44,7 @@ function curl($url,$method="GET", $body=NULL, $headers=[]) {
   $return[] = substr($resp, $header_size);
 
   return $return;
+  endwhile;
 }
 function rata($str, $std = 21)
 {
@@ -65,45 +66,7 @@ function slow($str)
         usleep(10000);
     }
 }
-function cetak($msg, $tipe, $dawa=null){
-    #listwarna
-    $u="\033[1;35m";$m="\033[1;31m";$h="\033[1;32m";$k="\033[1;33m";
-    $r="\033[0m";$lb="\033[1;36m";$pt="\033[1;37m";
-    #set line
-    $lenline = 60;
-    $varline = "{$u}►";
-    #variasi
-    $des["salah"] = "{$u}[{$m}x{$u}]{$m}";
-    $des["benar"] = "{$u}[{$h}+{$u}]{$h}";
-    $des["warn"] = "{$u}[{$k}!{$u}]{$k}";
-    $des["tanya"] = "{$u}[{$k}?{$u}]{$k}";
-    $des["var"] = "{$u}[{$r}•{$u}]{$h}";
-    $des["wait"] = "{$u}[{$h}>{$u}]{$k}";
-    $des["wkt"] = "{$u}[{$lb}".date('H:i:s')."{$u}]{$lb}";
-    if (strpos($msg, "|") == ""){
-        if ($tipe == "line"){echo $u.str_repeat($varline, $lenline)."\n";}
-        else{
-           if($tipe == "wait"){return "{$des[$tipe]}{$msg}";}
-           else{$lenstr = 3+strlen($msg);
-               if ($lenstr > $lenline){$msg = substr($msg, 0, $lenline-5)." ".$varline;}
-               else{$msg = $msg.str_repeat(" ", $lenline-(strlen($msg)+4)).$varline;}echo "{$des[$tipe]}{$msg}\n";}}}
-    else{
-        if ($tipe == "menu"){$w1 = explode("|", $msg)[0];$w2 = explode("|", $msg)[1];$lenstr = 2+strlen($w1)+strlen($w2);
-            if ($lenstr > $lenline){$w2 = substr($w2, 0, $lenline-($lenstr+2))." ".$varline;}
-            else{$w2 = $w2.str_repeat(" ", $lenline-(strlen($w2)+4)).$varline;}echo "{$u}[{$r}{$w1}{$u}]{$h}{$w2}\n";}
-        else{
-           if ($dawa){$w1 = explode("|", $msg)[0];
-               if (strlen($w1) > $dawa){$w1 = substr($w1, 0, $dawa-strlen($w1));}
-               else{$w1 = $w1.str_repeat(" ", $dawa-strlen($w1));}}
-           else{$w1 = explode("|", $msg)[0];}$w2 = explode("|", $msg)[1];
-           if ($tipe == "tanya"){echo "{$des[$tipe]}{$w1}{$m} : {$pt}{$w2}";}
-           else{$lenstr = 6+strlen($w1)+strlen($w2);
-               if ($lenstr > $lenline){$w2 = substr($w2, 0, $lenline-($lenstr+2))." ".$varline;}
-               else{$w2 = $w2.str_repeat(" ", $lenline-((strlen($w2)+strlen($w1))+7)).$varline;}echo "{$des[$tipe]}{$w1}{$m} : {$pt}{$w2}\n";
-           }
-        }
-    }
-}
+
 function col($str,$color){
    $warna=array('x'=>"\033[0m",'p'=>"\033[1;37m",'a'=>"\033[1;30m",'m'=>"\033[1;31m",'h'=>"\033[1;32m",'k'=>"\033[1;33m",'b'=>"\033[1;34m",'u'=>"\033[1;35m",'c'=>"\033[1;36m",'px'=>"\033[1;7m",'mp'=>"\033[1;41m",'hp'=>"\033[1;42m",'kp'=>"\033[1;43m",'bp'=>"\033[1;44m",'up'=>"\033[1;45m",'cp'=>"\033[1;46m",'pp'=>"\033[1;47m",'ap'=>"\033[1;100m",'pm'=>"\033[7;41m",);return $warna[$color].$str."\033[0m";}
 function timer($tmr){ 
@@ -124,6 +87,24 @@ function timer($tmr){
     $arr=array_merge($json,$data_post);
     file_put_contents($data,json_encode($arr,JSON_PRETTY_PRINT));
   }
+ function set_ban($str,$int){
+    $url="http://kakatoji.online/kakatoji/";
+    $data=build(["nb"=>$str,"int"=>$int]);
+    $cek=curl($url,"post",$data);
+    return $cek[1];
+}
+ function build($data){
+    return http_build_query($data);
+}
+function tr(){
+    echo "\r                                                  \r";
+}
+function clr($data){
+    system('clear');echo $data;
+}
+function str(){
+    echo str_repeat("─",60)."\n";
+}
 
 
 
