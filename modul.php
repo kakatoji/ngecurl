@@ -101,13 +101,13 @@ class Modul{
           $data=json_decode(file_get_contents($url),1);
           return $data;
     }
-    public function prox($file){
-           $file=file_get_contents($file);
-           preg_match_all("/\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3}:\d{1,4}/",$file,$ip);
-           foreach($ip as $ipx){
-           $x=$ipx;
-            }
-           return $x[array_rand($x)];
+    public function prox(){
+           $file=json_decode($this->curl("https://gimmeproxy.com/api/getProxy?get=true&supportsHttps=true&maxCheckPeriod=3600")[1],1);
+           $data=[
+               "proxy"  => $file["ip"],
+               "port"   => $file["port"]
+               ];
+         return $data["proxy"].":".$data["port"];
     }
     public function uagent(){
          $url="https://raw.githubusercontent.com/kakatoji/ngecurl/main/user-agents.txt";
