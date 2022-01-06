@@ -96,6 +96,20 @@ class Modul{
            $cek=$this->curl($url,$data);
            return $cek[1];
     }
+    public function strip(){
+        echo str_repeat("─",60)."\n";
+    }
+    public function rata($str, $std = 15){
+        $len = strlen($str);
+        if ($len < $std) {
+        $n = $std - $len;
+        $str .= str_repeat(" ", $n);
+         }
+        if ($len > $std) {
+        $str = substr($str, 0, $std);
+         }
+         return $str;
+    }
     public function name(){
           $url="https://randomuser.me/api/?format=json";
           $data=json_decode(file_get_contents($url),1);
