@@ -99,6 +99,22 @@ class Modul{
         }
         return $cookies;
     }
+    public function dect($text){
+        $ua[]="referer: https://www.deepl.com/";
+        $ua[]="x-instance: 9d23e6e9-3097-4b2a-a39b-88246f5962f7";
+        $ua[]="user-agent: DeepL-Android/VersionName(name=1.0.1) Android 8.1.0 (armv8l)";
+        $ua[]="x-app-os-name: Android";
+        $ua[]="x-app-os-version: 8.1.0";
+        $ua[]="x-app-version: 1.0.1";
+        $ua[]="x-app-build: 13";
+        $ua[]="x-app-device: SM-C710F";
+        $ua[]="x-app-instance-id: 9d23e6e9-3097-4b2a-a39b-88246f5962f7";
+        $ua[]="content-type: application/json; charset=utf-8";
+        $url="https://www2.deepl.com/jsonrpc";
+        $data='{"params":{"texts":[{"text":"'.$text.'","requestAlternatives":0}],"splitting":"newlines","commonJobParams":{"regionalVariant":"en-US","wasSpoken":false},"lang":{"target_lang":"en","source_lang_user_selected":""},"timestamp":'.time().rand(000,999).'},"id":359842931,"jsonrpc":"2.0","method": "LMT_handle_texts"}';
+        $result=json_decode($this->curl($url,$data,$ua)[1],1);
+        return $result["result"]["texts"][0]["text"];
+    }
     public function col($str,$color){
         $warna=array('x'=>"\033[0m",'p'=>"\033[1;37m",'a'=>"\033[1;30m",'m'=>"\033[1;31m",'h'=>"\033[1;32m",'k'=>"\033[1;33m",'b'=>"\033[1;34m",'u'=>"\033[1;35m",'c'=>"\033[1;36m",'px'=>"\033[1;7m",'mp'=>"\033[1;41m",'hp'=>"\033[1;42m",'kp'=>"\033[1;43m",'bp'=>"\033[1;44m",'up'=>"\033[1;45m",'cp'=>"\033[1;46m",'pp'=>"\033[1;47m",'ap'=>"\033[1;100m",'pm'=>"\033[7;41m",);return $warna[$color].$str."\033[0m";}
     public function timer($text,$timer){
