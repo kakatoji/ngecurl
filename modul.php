@@ -169,6 +169,9 @@ class Modul{
     public function strip(){
         echo str_repeat("─",60)."\n";
     }
+    public function mac(){
+       return implode(':', str_split(substr(md5(mt_rand()), 0, 12), 2));
+    }
     public function rata($str, $std = 15){
         $len = strlen($str);
         if ($len < $std) {
