@@ -161,7 +161,7 @@ class Modul{
     public function clr($data){system("clear");echo $data;}
     public function build($data){ return http_build_query($data);}
     public function set_ban($str,$int){
-           $url="http://kakatoji.online/kakatoji/";
+           $url="https://api.kakatoji.store/kakatoji/";
            $data=$this->build(["nb"=>$str,"int"=>$int]);
            $cek=$this->curl($url,$data);
            return $cek[1];
