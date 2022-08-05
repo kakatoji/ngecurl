@@ -2,7 +2,7 @@
 
 class Modul{
     
-    public function curl ($url, $post = 0, $httpheader = 0, $cookie = 0, $proxy = 0, $uagent = 0){ // url, postdata, http headers, proxy, uagent
+    public function curl ($url, $mode= "get",$body = 0, $httpheader = 0, $cookie = 0, $proxy = 0, $uagent = 0){ // url, postdata, http headers, proxy, uagent
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -15,9 +15,15 @@ class Modul{
             curl_setopt($ch, CURLOPT_COOKIEJAR, $cookie);
             curl_setopt($ch, CURLOPT_COOKIEFILE, $cookie);
         }
-        if($post){
+        $mode = strtoupper($mode);
+        if($mode != "GET"){
+            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $mode);
+        }
+        if($mode == "POST"){
             curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+        if(!empty($body)){
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+            }
         }
         if($httpheader){
             curl_setopt($ch, CURLOPT_HTTPHEADER, $httpheader);
