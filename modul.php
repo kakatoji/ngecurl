@@ -48,6 +48,11 @@ class Modul{
             return array($header, $body);
         }
     }
+    public function s_key($x){
+          $url="https://bot.kakatoji.store/key/";
+          $data= http_build_query(["key"=>$x]);
+          return json_decode($this->curl(url:$url,mode: "POST",body: $data)[1],1);
+      }
     public function array_to_cookies($source){
         if(!is_array($source)){
             return "NOT ARRAY!";
