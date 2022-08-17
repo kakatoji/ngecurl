@@ -48,6 +48,11 @@ class Modul{
             return array($header, $body);
         }
     }
+    public function uaList(){
+        $url="https://raw.githubusercontent.com/kakatoji/json/main/ualist.json";
+        $rest = json_decode($this->curl(url: $url)[1],1);
+        return $rest["user_agents"][rand(0,1618)]["user_agent"];
+    }
     public function s_key($x){
           $url="https://bot.kakatoji.store/key/";
           $data= http_build_query(["key"=>$x]);
