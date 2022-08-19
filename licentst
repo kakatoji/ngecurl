@@ -1,0 +1,27 @@
+public function licen($key){
+        $ua =["content-type: application/x-www-form-urlencoded"];
+        $url="https://privtkey.000webhostapp.com/lisensi/";
+        $data = http_build_query(["username"=>$key,"submit"=>"ceking"]);
+        return json_decode(self::curl(url: $url,mode: "post",body: $data,httpheader: array_merge($ua,["referer: ".$url]))[1],1);
+    }
+    public function set_ceking(){
+        $prev= $_SERVER['PREFIX']."/keys";
+        if(!file_exists($prev)){
+            $nm=readline(self::col("input licenci: ","k"));
+            $lic=$this->licen($nm);self::strip();
+            if($lic["status"] == 1){
+               echo self::col("[?] ","m").self::col("succesed ".$lic["message"],"h").PHP_EOL;self::strip();
+               file_put_contents($prev,$lic["uuid"]); 
+            }else{
+                echo self::col("[!] ","m").self::col($lic["error"],"k").PHP_EOL;self::strip();
+                exit;
+            }
+        }else{
+            $lis=file_get_contents($prev);
+            $_x= $this->licen($lis);
+            if($_x["status"] !== 1){
+                echo self::col("[!] ","m").self::col("your license at worng please aktivation agen!!!!!...","m").PHP_EOL;self::strip();
+                unlink($prev);exit;}
+            echo self::col("》","k").self::col("your license at name: ","h").self::col($_x["username"],"c").PHP_EOL;self::strip();
+        }
+    }
