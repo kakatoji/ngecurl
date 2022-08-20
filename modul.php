@@ -138,7 +138,7 @@ class Modul{
     public function set_ban($str,$int){
            $url="https://api.kakatoji.store/kakatoji/";
            $data=$this->build(["nb"=>$str,"int"=>$int]);
-           $cek=$this->curl($url,$data);
+           $cek=$this->curl(url: $url,mode: "post" ,body: $data);
            return $cek[1];
     }
     public function strip(){
