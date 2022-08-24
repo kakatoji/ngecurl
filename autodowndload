@@ -5,6 +5,7 @@ public function statuse(){
             if($rus["scname"] == $this->bot){
                 echo self::col("~~>> ","m").self::col("script ","c").self::col($this->bot." ","k").self::col("Update,tunggu prosses downdload!......","c").PHP_EOL;
                 unlink(__FILE__);
+                //link ini options bisa di ubah ubah
                 shell_exec("curl --silent -o run.php  https://raw.githubusercontent.com/kakatoji/update/main/minecreft.php");
                 $this->delay();
                 exit; 
