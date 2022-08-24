@@ -141,20 +141,6 @@ class Modul{
             exit;
         }
     }
-    public function statuse($link){
-        $url = "https://raw.githubusercontent.com/kakatoji/update/main/cek.json";
-        $rus = json_decode(self::curl(url: $url)[1],1);
-        if($rus["status"] == "update"){
-            if($rus["scname"] == $this->bot){
-                echo self::col("~~>> ","m").self::col("script ","c").self::col($this->bot." ","k").self::col("Update,tunggu prosses downdload!......","c").PHP_EOL;
-                unlink(__FILE__);
-                //url option sesuai kebutuhan saja
-                shell_exec("curl --silent -o run.php ".$link);
-                $this->delay(1);
-                exit; 
-            }
-        }
-    }
     public function delay($t){
         while(true):
 	        for ($i=1;$i<=$t;$i++){ 
