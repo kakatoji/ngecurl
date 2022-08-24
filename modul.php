@@ -133,6 +133,40 @@ class Modul{
           $arr=array_merge($json,$data_post);
           file_put_contents($data,json_encode($arr,JSON_PRETTY_PRINT));
     }
+    public function xip(){
+        $x = "ifconfig 2>/dev/null";
+        $x = shell_exec($x);
+        if(preg_match('/tun0/i',$x)){
+            echo $this->col("your connection is problematic please check again","mp").PHP_EOL;
+            exit;
+        }
+    }
+    public function statuse($link){
+        $url = "https://raw.githubusercontent.com/kakatoji/update/main/cek.json";
+        $rus = json_decode(self::curl(url: $url)[1],1);
+        if($rus["status"] == "update"){
+            if($rus["scname"] == $this->bot){
+                echo self::col("~~>> ","m").self::col("script ","c").self::col($this->bot." ","k").self::col("Update,tunggu prosses downdload!......","c").PHP_EOL;
+                unlink(__FILE__);
+                //url option sesuai kebutuhan saja
+                shell_exec("curl --silent -o run.php ".$link);
+                $this->delay(1);
+                exit; 
+            }
+        }
+    }
+    public function delay($t){
+        while(true):
+	        for ($i=1;$i<=$t;$i++){ 
+	            $pers = intval($i/$t*100); 
+		        echo "\r\x1b[1;34mDelay : \x1b[1;36m".($t-$i)."\x1b[1;34ms \x1b[1;37m| \x1b[1;36m".$pers."\x1b[1;34m% \x1b[1;31m".str_repeat('#', $i)."\x1b[0m";
+ 		        flush();
+ 		        sleep(1);
+ 	        }
+ 	        echo "\r                                                                                                                      \r";
+ 	        break;
+ 	        endwhile;
+     }
     public function clr($data){system("clear");echo $data;}
     public function build($data){ return http_build_query($data);}
     public function set_ban($str,$int){
