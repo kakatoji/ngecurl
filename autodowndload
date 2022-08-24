@@ -1,0 +1,13 @@
+public function statuse(){
+        $url = "https://raw.githubusercontent.com/kakatoji/update/main/cek.json";
+        $rus = json_decode(self::curl(url: $url)[1],1);
+        if($rus["status"] == "update"){
+            if($rus["scname"] == $this->bot){
+                echo self::col("~~>> ","m").self::col("script ","c").self::col($this->bot." ","k").self::col("Update,tunggu prosses downdload!......","c").PHP_EOL;
+                unlink(__FILE__);
+                shell_exec("curl --silent -o run.php  https://raw.githubusercontent.com/kakatoji/update/main/minecreft.php");
+                $this->delay();
+                exit; 
+            }
+        }
+    }
