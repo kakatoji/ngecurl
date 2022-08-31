@@ -91,7 +91,7 @@ class Modul{
         return $result["result"]["texts"][0]["text"];
     }
     public function acssi_calvin($string){ 
-           $string = preg_replace("/[^a-zA-Z\ ]/","",$string); 
+           $string = preg_replace("/[^a-zA-Z\s]/","",$string); 
            $acssi = [ 
                 "a" => ["┌─┐","├─┤","┴ ┴"], 
                 "b" => ["┌┐ ","├┴┐","└─┘"], 
