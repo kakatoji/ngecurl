@@ -212,9 +212,9 @@ class Modul{
            $cek=$this->curl(url: $url,mode: "post" ,body: $data);
            return $cek[1];
     }
-    public function strip(){
+    public function strip($i){
         $x = shell_exec("tput cols");
-        echo str_repeat("─",$x).PHP_EOL;
+        echo $this->col(str_repeat("─",$x),$i).PHP_EOL;
     }
     public function mac(){
        return implode(':', str_split(substr(md5(mt_rand()), 0, 12), 2));
