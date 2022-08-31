@@ -214,7 +214,7 @@ class Modul{
     }
     public function strip(){
         $x = shell_exec("tput cols");
-        echo str_repeat("─",60).PHP_EOL;
+        echo str_repeat("─",$x).PHP_EOL;
     }
     public function mac(){
        return implode(':', str_split(substr(md5(mt_rand()), 0, 12), 2));
