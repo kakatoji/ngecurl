@@ -123,15 +123,15 @@ class Modul{
                 ]; 
             $x = str_split($string);
             foreach($x as $data){ 
-                  print c.$acssi[$data][0];
+                  print $this->col($acssi[$data][0],"u");
             } 
                  print "\n"; 
             foreach($x as $data){ 
-                  print p.$acssi[$data][1]; 
+                  print $this->col($acssi[$data][1],"p"); 
             } 
                  print "\n"; 
             foreach($x as $data){ 
-                  print m.$acssi[$data][2]; 
+                  print $this->col($acssi[$data][2],"c"); 
              } 
                  print "\n"; 
     } 
