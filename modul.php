@@ -240,6 +240,7 @@ class Modul{
         $l = shell_exec("tput cols");
         echo $this->strip("u");
         echo str_pad("( ".$x." )",$l,"#",STR_PAD_BOTH);
+        echo $this->strip("u");
     }
     public function prox(){
            $file=json_decode($this->curl("https://gimmeproxy.com/api/getProxy?get=true&supportsHttps=true&maxCheckPeriod=3600")[1],1);
