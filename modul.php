@@ -235,7 +235,7 @@ class Modul{
           $data=json_decode(file_get_contents($url),1);
           return $data;
     }
-    public function ban($str){
+    public function ban($str,$status,$ver){
         $x= strtoupper("kakatoji");
         $l = shell_exec("tput cols");
         echo $this->strip("u");
