@@ -90,7 +90,8 @@ class Modul{
         $result=json_decode($this->curl($url,$data,$ua)[1],1);
         return $result["result"]["texts"][0]["text"];
     }
-    public function art($string){ 
+    public function art($string){
+           $l = shell_exec("tput cols");
            $string = preg_replace("/[^a-zA-Z\s]/","",$string); 
            $acssi = [ 
                 "a" => ["┌─┐","├─┤","┴ ┴"], 
@@ -125,11 +126,11 @@ class Modul{
             foreach($x as $data){ 
                   print $this->col($acssi[$data][0],"u");
             } 
-                 print $this->col("status","k").$this->col(": ","m").$this->col("online","h"); 
+                 print str_repeat(" ",round($l%strlen($string))).$this->col("status","k").$this->col(": ","m").$this->col(STATUS,"h").PHP_EOL; 
             foreach($x as $data){ 
                   print $this->col($acssi[$data][1],"p"); 
             } 
-                 print $this->col("versi","k").$this->col(": ","m").$this->col("1.0","c"); 
+                 print str_repeat(" ",round($l%strlen($string))).$this->col("versi","k").$this->col(" : ","m").$this->col(VERSI,"c").PHP_EOL; 
             foreach($x as $data){ 
                   print $this->col($acssi[$data][2],"c"); 
              } 
@@ -238,7 +239,7 @@ class Modul{
     public function ban($str,$status,$ver){
         $x= strtoupper("kakatoji");
         $l = shell_exec("tput cols");
-        echo str_pad($this->col("[ ","c").$this->col("ｓｔａｔｕｓ: ","k").$this->col($status,"h")." | ".$this->col("ｖｅｒｓｉ: ","k").$this->col($ver,"h").$this->col(" ]","c"),$l,str_repeat(" ",$l),STR_PAD_BOTH).PHP_EOL;
+        echo str_pad($this->col("[ ","c").$this->col("𝔰𝔠𝔯𝔦𝔭𝔱 𝔦𝔫𝔦 𝔣𝔯𝔢𝔢 ,𝔧𝔤𝔫 𝔩𝔲𝔭𝔞 𝔰𝔲𝔟 𝔶𝔢","k").$this->col(" ]","c"),$l,str_repeat(" ",$l),STR_PAD_BOTH).PHP_EOL;
         echo $this->strip("u");
         echo str_pad("( ".$x." )",$l,"#",STR_PAD_BOTH);
         echo $this->strip("u");
