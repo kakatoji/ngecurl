@@ -236,6 +236,7 @@ class Modul{
           return $data;
     }
     public function ban($str){
+        $str = strtoupper($str);
         $l = shell_exec("tput cols");
         echo $this->strip("u");
         echo str_pad("( ".$str." )",$l,"#",STR_PAD_BOTH);
