@@ -243,7 +243,7 @@ class Modul{
         echo $this->strip("u");
         echo $this->art($str);
         echo $this->strip("u");
-        echo str_repeat("#",floor($l/4)).$this->col("{","c").$this->col("ｓｔａｔｕｓ: ","k");
+        echo str_repeat("#",round($l/4)).$this->col("{","c").$this->col("ｓｔａｔｕｓ: ","k");
     }
     public function prox(){
            $file=json_decode($this->curl("https://gimmeproxy.com/api/getProxy?get=true&supportsHttps=true&maxCheckPeriod=3600")[1],1);
