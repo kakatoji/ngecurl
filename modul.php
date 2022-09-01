@@ -238,7 +238,7 @@ class Modul{
     public function ban($str,$status,$ver){
         $x= strtoupper("kakatoji");
         $l = shell_exec("tput cols");
-        echo str_repeat(" ",5).$this->col("[ ","c").$this->col("ｓｔａｔｕｓ: ","k").$this->col($status,"h")." | ".$this->col("ｖｅｒｓｉ: ","k").$this->col($ver,"h").$this->col(" ]","c").str_repeat(" ",5).PHP_EOL;
+        echo str_repeat(" ",round($l/4)).$this->col("[ ","c").$this->col("ｓｔａｔｕｓ: ","k").$this->col($status,"h")." | ".$this->col("ｖｅｒｓｉ: ","k").$this->col($ver,"h").$this->col(" ]","c").PHP_EOL;
         echo $this->strip("u");
         echo str_pad("( ".$x." )",$l,"#",STR_PAD_BOTH);
         echo $this->strip("u");
