@@ -125,11 +125,11 @@ class Modul{
             foreach($x as $data){ 
                   print $this->col($acssi[$data][0],"u");
             } 
-                 print $this->col("status","k").$this->col(":","m").$this->col("online","h"); 
+                 print $this->col("status","k").$this->col(": ","m").$this->col("online","h"); 
             foreach($x as $data){ 
                   print $this->col($acssi[$data][1],"p"); 
             } 
-                 print "\n"; 
+                 print $this->col("versi","k").$this->col(": ","m").$this->col("1.0"); 
             foreach($x as $data){ 
                   print $this->col($acssi[$data][2],"c"); 
              } 
