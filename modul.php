@@ -246,7 +246,8 @@ class Modul{
         echo $this->strip("u");
         echo str_repeat("𐌔𐌕𐌀𐌓𐌕",$l).PHP_EOL;
         echo $this->strip("u");
-        echo $this->col("𝐲𝐨𝐮𝐭𝐮𝐛𝐞: ","k").$this->col("𝒉𝒕𝒕𝒑𝒔://𝒚𝒐𝒖𝒕𝒖𝒃𝒆.𝒄𝒐𝒎/𝒄/𝒌𝒂𝒌𝒂𝒕𝒐𝒋𝒊","c").PHP_EOL;
+        echo $this->col("𝒚𝒐𝒖𝒕𝒖𝒃𝒆: ","k").$this->col("𝒉𝒕𝒕𝒑𝒔://𝒚𝒐𝒖𝒕𝒖𝒃𝒆.𝒄𝒐𝒎/𝒄/𝒌𝒂𝒌𝒂𝒕𝒐𝒋𝒊","c").PHP_EOL;
+        echo $this->col("𝒘𝒂𝒓𝒏𝒊𝒏𝒈: ","k").$this->col("𝖗𝖊𝖘𝖎𝖐𝖔 𝖉𝖎 𝖙𝖆𝖓𝖌𝖌𝖚𝖓𝖌 𝖚𝖘𝖊𝖗!!..","m").PHP_EOL;
         
         
     }
