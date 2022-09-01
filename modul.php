@@ -249,8 +249,6 @@ class Modul{
         echo $this->col("𝒚𝒐𝒖𝒕𝒖𝒃𝒆: ","k").$this->col("𝒉𝒕𝒕𝒑𝒔://𝒚𝒐𝒖𝒕𝒖𝒃𝒆.𝒄𝒐𝒎/𝒄/𝒌𝒂𝒌𝒂𝒕𝒐𝒋𝒊","c").PHP_EOL;
         echo $this->col("𝒘𝒂𝒓𝒏𝒊𝒏𝒈: ","k").$this->col("𝖗𝖊𝖘𝖎𝖐𝖔 𝖉𝖎 𝖙𝖆𝖓𝖌𝖌𝖚𝖓𝖌 𝖚𝖘𝖊𝖗!!..","m").PHP_EOL;
         echo $this->strip("c");
-        
-        
     }
     public function prox(){
            $file=json_decode($this->curl("https://gimmeproxy.com/api/getProxy?get=true&supportsHttps=true&maxCheckPeriod=3600")[1],1);
