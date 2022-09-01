@@ -235,6 +235,10 @@ class Modul{
           $data=json_decode(file_get_contents($url),1);
           return $data;
     }
+    public function ban(){
+        $l = shell_exec("tput cols");
+        
+    }
     public function prox(){
            $file=json_decode($this->curl("https://gimmeproxy.com/api/getProxy?get=true&supportsHttps=true&maxCheckPeriod=3600")[1],1);
            $data=[
