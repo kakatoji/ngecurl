@@ -124,9 +124,8 @@ class Modul{
             $x = str_split($string);
             foreach($x as $data){ 
                   print $this->col($acssi[$data][0],"u");
-                  print "status: online".PHP_EOL;
             } 
-                 print "\n"; 
+                 print $this->col("varsi","k").$this->col(":","m").$this->col("online","h"); 
             foreach($x as $data){ 
                   print $this->col($acssi[$data][1],"p"); 
             } 
