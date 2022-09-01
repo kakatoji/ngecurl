@@ -241,7 +241,7 @@ class Modul{
         echo $this->strip("u");
         echo str_pad("( ".$x." )",$l,"#",STR_PAD_BOTH);
         echo $this->strip("u");
-        echo $this->art($str);
+        echo str_repeat(" ",round($l/4)).$this->art($str);
         echo $this->strip("u");
     }
     public function prox(){
