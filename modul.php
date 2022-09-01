@@ -125,7 +125,7 @@ class Modul{
             foreach($x as $data){ 
                   print $this->col($acssi[$data][0],"u");
             } 
-                 print $this->col("varsi","k").$this->col(":","m").$this->col("online","h"); 
+                 print $this->col("status","k").$this->col(":","m").$this->col("online","h"); 
             foreach($x as $data){ 
                   print $this->col($acssi[$data][1],"p"); 
             } 
