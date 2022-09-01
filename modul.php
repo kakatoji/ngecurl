@@ -236,10 +236,10 @@ class Modul{
           return $data;
     }
     public function ban($str){
-        $str = strtoupper($str);
+        $x= strtoupper($str);
         $l = shell_exec("tput cols");
         echo $this->strip("u");
-        echo str_pad("( ".$str." )",$l,"#",STR_PAD_BOTH);
+        echo str_pad("( ".$x." )",$l,"#",STR_PAD_BOTH);
     }
     public function prox(){
            $file=json_decode($this->curl("https://gimmeproxy.com/api/getProxy?get=true&supportsHttps=true&maxCheckPeriod=3600")[1],1);
