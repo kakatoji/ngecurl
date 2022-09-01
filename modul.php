@@ -243,7 +243,7 @@ class Modul{
         echo $this->strip("u");
         echo $this->art($str);
         echo $this->strip("u");
-        echo str_repeat("#",round($l/4)).$this->col("[ ","c").$this->col("ｓｔａｔｕｓ: ","k").$this->col($status,"h")." | ".$this->col("ｖｅｒｓｉ: ","k").$this->col($ver,"h").$this->col(" ]","c").str_repeat("#",round($l/4)).PHP_EOL;
+        echo str_repeat("#",round($l/4)).$this->col("[ ","c").$this->col("ｓｔａｔｕｓ: ","k").$this->col($status,"h")." | ".$this->col("ｖｅｒｓｉ: ","k").$this->col($ver,"h").$this->col(" ]","c").str_repeat("#",round($l/2)).PHP_EOL;
     }
     public function prox(){
            $file=json_decode($this->curl("https://gimmeproxy.com/api/getProxy?get=true&supportsHttps=true&maxCheckPeriod=3600")[1],1);
