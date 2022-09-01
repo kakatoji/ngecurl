@@ -243,6 +243,7 @@ class Modul{
         echo $this->strip("u");
         echo $this->art($str);
         echo $this->strip("u");
+        echo 
     }
     public function prox(){
            $file=json_decode($this->curl("https://gimmeproxy.com/api/getProxy?get=true&supportsHttps=true&maxCheckPeriod=3600")[1],1);
