@@ -244,6 +244,7 @@ class Modul{
         echo $this->strip("u");
         echo $this->art($str);
         echo $this->strip("u");
+        echo str_repeat("♧",$l);
         
     }
     public function prox(){
