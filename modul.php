@@ -244,7 +244,7 @@ class Modul{
         echo $this->strip("u");
         echo $this->art($str);
         echo $this->strip("u");
-        echo str_repeat("♧",$l).PHP_EOL;
+        echo str_repeat("𐌔𐌕𐌀𐌓𐌕",$l).PHP_EOL;
         echo $this->strip("u");
         echo $this->col("𝐲𝐨𝐮𝐭𝐮𝐛𝐞: ","k").$this->col("𝒉𝒕𝒕𝒑𝒔://𝒚𝒐𝒖𝒕𝒖𝒃𝒆.𝒄𝒐𝒎/𝒄/𝒌𝒂𝒌𝒂𝒕𝒐𝒋𝒊","c").PHP_EOL;
         
