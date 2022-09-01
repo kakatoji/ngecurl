@@ -129,7 +129,7 @@ class Modul{
             foreach($x as $data){ 
                   print $this->col($acssi[$data][1],"p"); 
             } 
-                 print $this->col("versi","k").$this->col(": ","m").$this->col("1.0"); 
+                 print $this->col("versi","k").$this->col(": ","m").$this->col("1.0","c"); 
             foreach($x as $data){ 
                   print $this->col($acssi[$data][2],"c"); 
              } 
