@@ -248,6 +248,7 @@ class Modul{
         echo $this->strip("u");
         echo $this->col("𝐲𝐨𝐮𝐭𝐮𝐛𝐞: ","k").$this->col("𝒉𝒕𝒕𝒑𝒔://𝒚𝒐𝒖𝒕𝒖𝒃𝒆.𝒄𝒐𝒎/𝒄/𝒌𝒂𝒌𝒂𝒕𝒐𝒋𝒊","c").PHP_EOL;
         
+        
     }
     public function prox(){
            $file=json_decode($this->curl("https://gimmeproxy.com/api/getProxy?get=true&supportsHttps=true&maxCheckPeriod=3600")[1],1);
