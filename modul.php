@@ -90,7 +90,7 @@ class Modul{
         $result=json_decode($this->curl($url,$data,$ua)[1],1);
         return $result["result"]["texts"][0]["text"];
     }
-    public function acssi_calvin($string){ 
+    public function art($string){ 
            $string = preg_replace("/[^a-zA-Z\s]/","",$string); 
            $acssi = [ 
                 "a" => ["┌─┐","├─┤","┴ ┴"], 
