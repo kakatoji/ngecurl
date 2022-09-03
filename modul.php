@@ -231,6 +231,19 @@ class Modul{
          }
          return $str;
     }
+    public function loading($txt){
+        for($i=1;$i<100;$i++){
+                if($i % 2 == 1){
+                        print "\r                                 \r";
+                        print " $txt ".$this->col($i+=2,"m").$this->col("%","k");
+                }else{
+                        print "\r                    \r";
+                        print " $txt ".$this->col($i,"m").$this->col("%","k");
+                }
+            usleep(40000);
+            }
+            print "\r                                             \r";
+        }
     public function name(){
           $url="https://randomuser.me/api/?format=json";
           $data=json_decode(file_get_contents($url),1);
