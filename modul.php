@@ -249,7 +249,7 @@ class Modul{
           $data=json_decode(file_get_contents($url),1);
           return $data;
     }
-    public function ban($str,$status,$ver){
+    public function ban($str){
         $x= strtoupper("kakatoji");
         $l = shell_exec("tput cols");
         echo str_pad($this->col("[ ","c").$this->col("𝔰𝔠𝔯𝔦𝔭𝔱 𝔦𝔫𝔦 𝔣𝔯𝔢𝔢 ,𝔧𝔤𝔫 𝔩𝔲𝔭𝔞 𝔰𝔲𝔟 𝔶𝔢","k").$this->col(" ]","c"),$l,str_repeat(" ",$l),STR_PAD_BOTH).PHP_EOL;
